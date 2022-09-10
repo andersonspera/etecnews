@@ -43,6 +43,11 @@ if(isset($_GET['url']))
             $not->abrirConsulta();
         break;
 
+        case 'enviar-usuario':
+            $usu = new UsuarioController();
+            $usu->cadastrar();
+        break;
+
         default:
             echo "página não encontrada<br>
             Verificar se existe a rota criada<br>

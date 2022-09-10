@@ -1,4 +1,4 @@
-# Testemunho Público Especial - TPE
+# Projeto EtecNews
 ### O que usamos:
  - PHP
  - MySQL
