@@ -27,5 +27,17 @@ class Usuario
 
         $cmd->execute(); //executar o comando
     }
+
+    public function consultar()
+    {
+        $con = Conexao::conectar();//acessar o BD
+        $cmd = $con->prepare("SELECT * FROM usuario"); //comando SQL
+        $cmd->execute();//executar o comando SQL
+        return $cmd->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+
 }
+
 ?>

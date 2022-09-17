@@ -10,6 +10,8 @@ class UsuarioController
 
     public function abrirConsulta()
     {
+        $usu = new Usuario();
+        $dadosUsuario = $usu->consultar();
         include_once "view/consulta_usuario.php";
     }
 
