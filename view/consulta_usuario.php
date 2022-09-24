@@ -52,7 +52,9 @@
                                     <td>$value->nome</td>
                                     <td>$value->email</td>
                                     <td>$value->acesso</td>
-                                    <td></td>
+                                    <td>
+                                        <a href='". URL ."excluir-usuario/$value->codusuario' onclick='return confirm(\"Tem certeza?\")' class='btn btn-outline-danger btn-sm'><i class='fa fa-trash'></i> Excluir</a>
+                                    </td>
                                 </tr>";
                             }
                             ?>

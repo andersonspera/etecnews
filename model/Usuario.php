@@ -36,6 +36,17 @@ class Usuario
         return $cmd->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function excluir()
+    {
+        $con = Conexao::conectar(); //conectar no BD
+        //comando SQL para excluir (DELETE)
+        $cmd = $con->prepare("DELETE FROM usuario 
+        WHERE codusuario = :codusuario");
+        //enviando o valor dos parâmetros
+        $cmd->bindParam(":codusuario",    $this->codusuario);
+        $cmd->execute(); //executar o comando
+    }
+
 
 
 }

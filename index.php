@@ -48,6 +48,11 @@ if(isset($_GET['url']))
             $usu->cadastrar();
         break;
 
+        case 'excluir-usuario':
+            $usu = new UsuarioController();
+            $usu->excluir($url[1]);
+        break;
+
         default:
             echo "página não encontrada<br>
             Verificar se existe a rota criada<br>

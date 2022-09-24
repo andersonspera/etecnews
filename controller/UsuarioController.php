@@ -30,5 +30,13 @@ class UsuarioController
                 window.location='".URL."cadastro-usuario';
             </script>";
     }
+
+    public function excluir($cod)
+    {
+        $usu = new Usuario();
+        $usu->codusuario = $cod;
+        $usu->excluir();
+        header("Location:".URL."consulta-usuario");
+    }
 }
 ?>
