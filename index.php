@@ -13,19 +13,15 @@ if(isset($_GET['url']))
     $url = explode('/', $_GET['url']);
     switch($url[0])
     {
-        case 'cadastro-usuario':
-            $usu = new UsuarioController();
-            $usu->abrirCadastro();
-        break;
-        
-        case 'consulta-usuario':
-            $usu = new UsuarioController();
-            $usu->abrirConsulta();
-        break;
-
+        //rotas para categoria
         case 'cadastro-categoria':
             $categ = new CategoriaController();
             $categ->abrirCadastro();
+        break;
+
+        case 'enviar-categoria':
+            $categ = new CategoriaController();
+            $categ->cadastrar();
         break;
         
         case 'consulta-categoria':
@@ -33,6 +29,7 @@ if(isset($_GET['url']))
             $categ->abrirConsulta();
         break;
 
+        //rotas para noticia
         case 'cadastro-noticia':
             $not = new NoticiaController();
             $not->abrirCadastro();
@@ -43,6 +40,17 @@ if(isset($_GET['url']))
             $not->abrirConsulta();
         break;
 
+        //rotas para usuário
+        case 'consulta-usuario':
+            $usu = new UsuarioController();
+            $usu->abrirConsulta();
+        break;
+
+        case 'cadastro-usuario':
+            $usu = new UsuarioController();
+            $usu->abrirCadastro();
+        break;
+
         case 'enviar-usuario':
             $usu = new UsuarioController();
             $usu->cadastrar();
@@ -51,6 +59,16 @@ if(isset($_GET['url']))
         case 'excluir-usuario':
             $usu = new UsuarioController();
             $usu->excluir($url[1]);
+        break;
+
+        case 'editar-usuario':
+            $usu = new UsuarioController();
+            $usu->editar($url[1]);
+        break;
+
+        case 'atualizar-usuario':
+            $usu = new UsuarioController();
+            $usu->atualizar();
         break;
 
         default:

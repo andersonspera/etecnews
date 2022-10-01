@@ -26,11 +26,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>teste</td>
-                                <td>teste</td>
-                            </tr>
+                            <?php 
+                            foreach($dadosCategoria as $value)
+                            {
+                                echo "<tr>
+                                        <th scope='row'>$value->codcategoria</th>
+                                        <td>$value->nomecategoria</td>
+                                        <td>
+                                            botões
+                                        </td>
+                                    </tr>";
+                            }
+                            ?>
                         </tbody>
                     </table>
             </div>

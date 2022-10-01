@@ -54,6 +54,7 @@
                                     <td>$value->acesso</td>
                                     <td>
                                         <a href='". URL ."excluir-usuario/$value->codusuario' onclick='return confirm(\"Tem certeza?\")' class='btn btn-outline-danger btn-sm'><i class='fa fa-trash'></i> Excluir</a>
+                                        <a href='". URL ."editar-usuario/$value->codusuario' class='btn btn-outline-warning btn-sm'><i class='fa fa-edit'></i> Editar</a>
                                     </td>
                                 </tr>";
                             }

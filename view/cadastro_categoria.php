@@ -17,7 +17,7 @@
         <div class="row mt-3 px-2">
             <div class="col-sm-8 rounded border mx-auto p-3 shadow">
                 <h5 class="text-center">Cadastro de Categorias</h5>
-                <form action="" method="post">
+                <form action="<?php echo URL;?>enviar-categoria" method="post">
                     <div class="form-group">
                         <label for="nomecategoria">Nome da categoria</label>
                         <input type="text" name="nomecategoria" id="nomecategoria" placeholder="Informe o nome da categoria" class="form-control" required>
