@@ -9,6 +9,10 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo URL; ?>"><i class="fa fa-house"></i> Início</a>
         </li>
+        <?php
+        if($_SESSION["sessao"]->acesso == 1)
+        {
+        ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-user"></i> Usuário
@@ -18,6 +22,7 @@
             <li><a class="dropdown-item" href="<?php echo URL;?>consulta-usuario"><i class="fa fa-search"></i> Consultar</a></li>
           </ul>
         </li>
+        <?php } ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa fa-list"></i> Categorias
@@ -37,7 +42,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
+          <a class="nav-link" href="<?php echo URL;?>sair"><i class="fa-solid fa-right-from-bracket"></i> Sair</a>
         </li>
       </ul>
     </div>

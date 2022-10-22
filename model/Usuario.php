@@ -77,6 +77,16 @@ class Usuario
         return $cmd->fetch(PDO::FETCH_OBJ);
     }
 
+    public function logar()
+    {
+        $con = Conexao::conectar();//acessar o BD
+        $cmd = $con->prepare("SELECT * FROM usuario
+        WHERE email = :email"); //comando SQL
+        $cmd->bindParam(":email", $this->email);
+        $cmd->execute();//executar o comando SQL
+        return $cmd->fetch(PDO::FETCH_OBJ);
+    }
+
 }
 
 ?>

@@ -5,11 +5,13 @@ class CategoriaController
 {
     public function abrirCadastro()
     {
+        UsuarioController::validaSessao(); //validando sessão
         include_once "view/cadastro_categoria.php";
     }
 
     public function abrirConsulta()
     {
+        UsuarioController::validaSessao(); //validando sessão
         $cat = new Categoria();
         $dadosCategoria = $cat->consultar();
         include_once "view/consulta_categoria.php";
@@ -17,6 +19,7 @@ class CategoriaController
 
     public function cadastrar()
     {
+        UsuarioController::validaSessao(); //validando sessão
         $cat = new Categoria();//colocar a classe em uso
         //enviar valores do formulário para a classe
         $cat->nomecategoria = $_POST["nomecategoria"];

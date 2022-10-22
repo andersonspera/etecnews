@@ -1,4 +1,6 @@
 <?php
+session_start();//iniciar a sessão
+
 //classes necessárias
 include_once "controller/HomeController.php";
 include_once "controller/UsuarioController.php";
@@ -69,6 +71,26 @@ if(isset($_GET['url']))
         case 'atualizar-usuario':
             $usu = new UsuarioController();
             $usu->atualizar();
+        break;
+
+        case 'login':
+            $usu = new UsuarioController();
+            $usu->abrirLogin();
+        break;
+
+        case 'logar':
+            $usu = new UsuarioController();
+            $usu->logar();
+        break;
+
+        case 'sair':
+            $usu = new UsuarioController();
+            $usu->sair();
+        break;
+
+        case 'novo-usuario':
+            $usu = new UsuarioController();
+            $usu->novoUsuario();
         break;
 
         default:

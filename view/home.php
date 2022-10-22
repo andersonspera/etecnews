@@ -17,13 +17,14 @@
         <div class="row mt-3">
             <div class="col">
                 <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading">Boas-vindas!</h4>
+                    <h4 class="alert-heading">Boas-vindas! <?php echo $_SESSION["sessao"]->nome; ?></h4>
                     <p>Este é um projeto para gerenciamento de notícias desenvolvido com a linguagem PHP e banco de dados MySQL como parte da disciplina de <strong>Programação Web III</strong> do curso de <strong>Desenvolvimento de Sistemas</strong> na <strong>Etec de Francisco Morato</strong></p>
                     <hr>
                     <p class="mb-0">Professor <strong>Anderson Spera</strong></p>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Bootstrap JS -->

@@ -5,6 +5,7 @@ class NoticiaController
 {
     public function abrirCadastro()
     {
+        UsuarioController::validaSessao(); //validando sessão
         //buscar as categorias para exibir na lista
         $cat = new Categoria();
         $dadosCategoria = $cat->consultar();
@@ -13,6 +14,7 @@ class NoticiaController
 
     public function abrirConsulta()
     {
+        UsuarioController::validaSessao(); //validando sessão
         include_once "view/consulta_noticia.php";
     }
 }
