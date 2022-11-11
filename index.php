@@ -42,6 +42,16 @@ if(isset($_GET['url']))
             $not->abrirConsulta();
         break;
 
+        case 'enviar-noticia':
+            $not = new NoticiaController();
+            $not->cadastrar();
+        break;
+
+        case 'excluir-noticia':
+            $not = new NoticiaController();
+            $not->excluir($url[1]);
+        break;
+
         //rotas para usuário
         case 'consulta-usuario':
             $usu = new UsuarioController();

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 10-Set-2022 às 01:30
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 7.4.26
+-- Host: localhost
+-- Tempo de geração: 05/11/2022 às 00:53
+-- Versão do servidor: 10.4.21-MariaDB
+-- Versão do PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,7 +26,7 @@ USE `bdnews`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categoria`
+-- Estrutura para tabela `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -35,30 +35,45 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `categoria`
+-- Despejando dados para a tabela `categoria`
 --
 
 INSERT INTO `categoria` (`codcategoria`, `nomecategoria`) VALUES
-(1, 'Tecnologia');
+(1, 'Tecnologia'),
+(3, 'Roupas'),
+(4, 'Instrumentos Musicais'),
+(5, 'Lazer'),
+(6, 'Casa teste'),
+(7, 'teste'),
+(8, 'Nova Categoria');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `noticia`
+-- Estrutura para tabela `noticia`
 --
 
 CREATE TABLE `noticia` (
   `codnoticia` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
   `data` date NOT NULL,
   `codcategoria` int(11) NOT NULL,
   `imagem` varchar(50) NOT NULL,
   `conteudo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Despejando dados para a tabela `noticia`
+--
+
+INSERT INTO `noticia` (`codnoticia`, `titulo`, `data`, `codcategoria`, `imagem`, `conteudo`) VALUES
+(1, '', '2022-11-03', 1, '', 'teste'),
+(2, '', '2022-11-04', 1, 'imagem1.jpeg', 'teste');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura para tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -70,56 +85,66 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`codusuario`, `nome`, `email`, `senha`, `acesso`) VALUES
+(3, 'Anderson Wait', 'andersonspera@gmail.com', '$2y$10$qVDNmz8uLmsvTBJxSHFMGenFBRCCHOXOCjXvxzKnwjxfe5anUaKwa', 1),
+(5, 'Usuário Teste', 'teste@teste.com', '$2y$10$PPHYUpAzNwgl9XSxJE.yPeOhoAA2N1ktkp3IY5T72nZpNrD8bp.tO', 2),
+(7, 'Testando', 'testando@gmail.com', '$2y$10$wklEjsFLK/JXhul6cYVKV.mare.urG/iESu9x00gEQkaLA3g6kWhW', 1),
+(8, 'Testando da Silva', 'testando@gmail.com', '$2y$10$NxchM2O7SmC6b7pfrwthX.oCDXUwgL7JCxCt8pFJEGP50KYtGE3yC', 1);
+
+--
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `categoria`
+-- Índices de tabela `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`codcategoria`);
 
 --
--- Índices para tabela `noticia`
+-- Índices de tabela `noticia`
 --
 ALTER TABLE `noticia`
   ADD PRIMARY KEY (`codnoticia`),
   ADD KEY `codcategoria` (`codcategoria`);
 
 --
--- Índices para tabela `usuario`
+-- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`codusuario`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `codcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `codnoticia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codnoticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `codusuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `noticia`
+-- Restrições para tabelas `noticia`
 --
 ALTER TABLE `noticia`
   ADD CONSTRAINT `fkcategoria` FOREIGN KEY (`codcategoria`) REFERENCES `categoria` (`codcategoria`);

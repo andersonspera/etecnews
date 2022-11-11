@@ -17,7 +17,7 @@
         <div class="row mt-3 px-2">
             <div class="col-sm-8 rounded border mx-auto p-3 shadow">
                 <h5 class="text-center">Cadastro de Notícias</h5>
-                <form action="" method="post">
+                <form action="<?php echo URL;?>enviar-noticia" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="data">Data da notícia</label>
                         <input type="date" name="data" id="data" class="form-control" required>
@@ -36,14 +36,11 @@
                                 echo "<option value='$value->codcategoria'>$value->nomecategoria</option>";
                             } 
                             ?>
-                            
-
-
                         </select>
                     </div>
                     <div class="form-group" required>
                         <label for="codcategoria">Imagem</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <input class="form-control" type="file" accept="image/*" name="imagem" id="imagem">
                     </div>
                     <div class="form-group">
                         <label for="titulo">Conteúdo</label>
@@ -56,7 +53,7 @@
             </div>
         </div>
     </div>
-<!-- Bootstrap JS -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

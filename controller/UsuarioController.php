@@ -91,8 +91,7 @@ class UsuarioController
         $usu->email = $_POST["email"];
         $dadosUsuario = $usu->logar();
         
-        if($dadosUsuario && 
-        password_verify($_POST["senha"], $dadosUsuario->senha) )
+        if($dadosUsuario &&  password_verify($_POST["senha"], $dadosUsuario->senha) )
         {
             $_SESSION['sessao'] = $dadosUsuario;
             //encontrou usuário -> vai para HOME
