@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo URL; ?>"><i class="fa fa-house"></i> Início</a>
+          <a class="nav-link active" aria-current="page" href="<?php echo URL; ?>home"><i class="fa fa-house"></i> Início</a>
         </li>
         <?php
         if($_SESSION["sessao"]->acesso == 1)

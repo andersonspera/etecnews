@@ -103,6 +103,27 @@ if(isset($_GET['url']))
             $usu->novoUsuario();
         break;
 
+        //rotas home
+        case 'home':
+            $home = new HomeController();
+            $home->abrirHome();
+        break;
+
+        case 'categoria':
+            $home = new HomeController();
+            $home->abrirHomeCategoria($url[1]);
+        break;
+
+        case 'noticia':
+            $home = new HomeController();
+            $home->abrirNoticia($url[1]);
+        break;
+
+        case 'pesquisa':
+            $home = new HomeController();
+            $home->abrirHomePesquisa();
+        break;
+
         default:
             echo "página não encontrada<br>
             Verificar se existe a rota criada<br>
@@ -117,6 +138,6 @@ else
 {
     //abrir a página inicial
     $home = new HomeController();
-    $home->abrirHome();
+    $home->abrirHomeCliente();
 }
 ?>

@@ -24,7 +24,7 @@ class Categoria
     public function consultar()
     {
         $con = Conexao::conectar();//acessar o BD
-        $cmd = $con->prepare("SELECT * FROM categoria"); //comando SQL
+        $cmd = $con->prepare("SELECT * FROM categoria ORDER BY nomecategoria"); //comando SQL
         $cmd->execute();//executar o comando SQL
         return $cmd->fetchAll(PDO::FETCH_OBJ);
     }

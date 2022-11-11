@@ -95,7 +95,7 @@ class UsuarioController
         {
             $_SESSION['sessao'] = $dadosUsuario;
             //encontrou usuário -> vai para HOME
-            header("Location:" . URL);
+            header("Location:" . URL . "home");
         }
         else
         {
@@ -120,7 +120,7 @@ class UsuarioController
 
     public static function validaAdministrador()
     {
-        if($_SESSION["sessao"]->acesso != 1)  header("Location:" . URL); //volta para login
+        if($_SESSION["sessao"]->acesso != 1)  header("Location:" . URL . "home"); //volta para login
     }
 
     public function novoUsuario()

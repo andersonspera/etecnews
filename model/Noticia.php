@@ -39,6 +39,28 @@ class Noticia
         return $cmd->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function consultar_categoria()
+    {
+        $con = Conexao::conectar();//acessar o BD
+        $cmd = $con->prepare("SELECT * FROM noticia JOIN categoria
+        ON categoria.codcategoria = noticia.codcategoria
+        WHERE categoria.codcategoria = :codcategoria"); //comando SQL
+        $cmd->bindParam(":codcategoria",    $this->codcategoria);
+        $cmd->execute();//executar o comando SQL
+        return $cmd->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function consultar_titulo()
+    {
+        $con = Conexao::conectar();//acessar o BD
+        $cmd = $con->prepare("SELECT * FROM noticia JOIN categoria
+        ON categoria.codcategoria = noticia.codcategoria
+        WHERE titulo LIKE :titulo"); //comando SQL
+        $cmd->bindParam(":titulo",    $this->titulo);
+        $cmd->execute();//executar o comando SQL
+        return $cmd->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function excluir()
     {
         $con = Conexao::conectar(); //conectar no BD
