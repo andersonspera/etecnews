@@ -18,20 +18,15 @@
                 <div class="card p-4">
                     <h4 class="alert-heading">Login EtecNews</h4>
                     <hr>
-                    <form action="<?php echo URL;?>logar" method="post">
+                    <form action="<?php echo URL;?>recuperar-senha" method="post">
 
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" placeholder="Informe seu e-mail" class="form-control" required>
                         </div>
-                        <div class="form-group">
-                            <label for="senha">Senha</label>
-                            <input type="password" name="senha" id="senha" placeholder="Informe sua senha" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn btn-success mt-3"><i class="fa fa-lock"></i> Entrar</button>
-                        <a href="<?php echo URL;?>novo-usuario" class="btn btn-secondary mt-3"><i class="fa fa-user"></i> Novo Usuário</a>
+                        <button type="submit" class="btn btn-success mt-3"><i class="fa fa-check"></i> Validar</button>
+                        <a href="<?php echo URL;?>login" class="btn btn-secondary mt-3"><i class="fa fa-arrow-left"></i> Voltar para Login</a>
                     </form>
-                    <a href="<?php echo URL;?>recuperar">Esqueceu a senha?</a>
                     <hr>
                     <p class="mb-0 text-center">Professor <strong>Anderson Spera</strong></p>
                 </div>

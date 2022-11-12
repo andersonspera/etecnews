@@ -93,6 +93,16 @@ if(isset($_GET['url']))
             $usu->logar();
         break;
 
+        case 'recuperar':
+            $usu = new UsuarioController();
+            $usu->abrirRecuperar();
+        break;
+
+        case 'recuperar-senha':
+            $usu = new UsuarioController();
+            $usu->recuperarSenha();
+        break;
+
         case 'sair':
             $usu = new UsuarioController();
             $usu->sair();

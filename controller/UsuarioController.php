@@ -11,6 +11,11 @@ class UsuarioController
         include_once "view/cadastro_usuario.php";
     }
 
+    public function abrirRecuperar()
+    {
+        include_once "view/recuperar.php";
+    }
+
     public function abrirConsulta()
     { 
         UsuarioController::validaSessao(); //validando sessão
@@ -126,6 +131,64 @@ class UsuarioController
     public function novoUsuario()
     {
         include_once "view/novo_usuario.php";
+    }
+
+    public function recuperarSenha()
+    {
+        $usu = new Usuario();
+        $usu->email = $_POST['email'];
+        $dadosUsuario = $usu->logar();
+        if($dadosUsuario)
+        {
+            //gerar uma nova senha
+            $novaSenha = $this->gerarSenha();
+
+            //enviar para o banco de dados
+            $usu->codusuario = $dadosUsuario->codusuario;
+            $usu->senha = password_hash($novaSenha, PASSWORD_DEFAULT);
+            $usu->atualizarSenha();
+
+            //enviar email com a nova senha (pesquisar PHPMailer)
+
+            //var_dump($dadosUsuario); 
+
+            echo "<script>
+            alert('Sua nova senha: $novaSenha foi enviada para o e-mail $usu->email');
+            window.location='".URL."login';
+        </script>";
+        }
+        else
+        {
+            echo "<script>
+                alert('Não foi possível recuperar a senha. Usuário não localizado!');
+                window.location='".URL."login';
+            </script>";
+        }
+    }
+
+    function gerarSenha($qtyCaraceters = 8)
+    {
+        //Letras minúsculas embaralhadas
+        $smallLetters = str_shuffle('abcdefghijklmnopqrstuvwxyz');
+    
+        //Letras maiúsculas embaralhadas
+        $capitalLetters = str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    
+        //Números aleatórios
+        $numbers = (((date('Ymd') / 12) * 24) + mt_rand(800, 9999));
+        $numbers .= 1234567890;
+    
+        //Caracteres Especiais
+        $specialCharacters = str_shuffle('!@#$%*-');
+    
+        //Junta tudo
+        $characters = $capitalLetters.$smallLetters.$numbers.$specialCharacters;
+    
+        //Embaralha e pega apenas a quantidade de caracteres informada no parâmetro
+        $password = substr(str_shuffle($characters), 0, $qtyCaraceters);
+    
+        //Retorna a senha
+        return $password;
     }
 
 

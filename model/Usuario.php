@@ -67,6 +67,20 @@ class Usuario
         $cmd->execute(); //executar o comando
     }
 
+    public function atualizarSenha()
+    {
+        $con = Conexao::conectar(); //conectar no BD
+        //comando SQL para cadastrar (INSERT)
+        $cmd = $con->prepare("UPDATE usuario SET
+                                        senha   = :senha
+                            WHERE codusuario = :codusuario");
+        //enviando o valor dos parâmetros
+        $cmd->bindParam(":codusuario",      $this->codusuario);
+        $cmd->bindParam(":senha",           $this->senha);
+
+        $cmd->execute(); //executar o comando
+    }
+
     public function retornar()
     {
         $con = Conexao::conectar();//acessar o BD
